@@ -34,7 +34,7 @@ then
     exit 1
 fi
 
-echo $(mysql --no-defaults -BN --connect-timeout=10 --host=$MYSQL_HOST --port=$MYSQL_PORT --user="$MYSQL_USERNAME" --password="$MYSQL_PASSWORD" -e 'SELECT * FROM sys.gr_member_routing_candidate_status' 2>/dev/null) | while read candidate readonly queue
+echo $(mysql --no-defaults -BN --connect-timeout=10 --host=$MYSQL_HOST --port=$MYSQL_PORT --user="$MYSQL_USERNAME" --password="$MYSQL_PASSWORD" -e 'SELECT * FROM mgr_delay_monitor.gr_member_routing_candidate_status' 2>/dev/null) | while read candidate readonly queue
 do
 
 if [ "$candidate" == "YES" ]
